@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제목</title>
+</head>
+<body>
+태크(Tag) 기호는 문서의 구조와 형태를 표현하는 명령어로 &lt; &gt; 사이에 적어 준다.<br/>
+<!-- html 에서 자주 쓰는 특수문자(escape character) 출력 (&lt;, &nbsp; ...) -->
+태그의 출력모양에 따른 두&nbsp; 가지 형태<br>
+<p/>
+1) Block 방식 : 새로운 행에 출력 p, h, div ...<br>
+2) Inline 방식 : 같은 행에 출력 a, b, i, span ...<br><br>
+<!-- tag는 tag를 포함할 수 있다. 겹쳐 쓰기는 불가!!! -->
+<h1>연습을 <h6>시작하자</h6></h1><b>태크 연습</b> <strong>두 가지 방식 이해</strong>
+<hr>
+다음 작업 계속
+<hr size="5" width="300" color="red">
+다음 작업 계속2
+<pre>
+내가 적은
+  대로
+  결과
+  	보이기
+</pre>
+영역 선택 태그: div(행 전체 선택), span(일부 구역만 선택)<br>
+web<div style="background-color:yellow">웹 프로그래밍 만세</div>web
+<br>
+web<span style="background-color:yellow">웹 프로그래밍 만세</span>web
+<p/>
+** 목록 태그**<br>
+<ul>
+	<li>새우깡</li>
+	<li>감자깡</li>
+	<li>고구마깡</li>
+</ul>
+<ol>
+	<li>새우깡</li>
+	<li>감자깡</li>
+	<li>고구마깡</li>
+</ol>
+<ul>
+	<li> 깡 종류
+		<ol>
+		<li>감자깡</li>
+		<li>고구마깡</li>
+	</ol>
+	</li>
+	<li> 커피 종류
+		<ol>
+		<li>아아</li>
+		<il>룽거</il>
+		</ol>
+</ul>
+</body>
+</html>

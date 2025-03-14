@@ -1,0 +1,103 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Layout Test</title>
+	<style type="text/css">
+	body {
+		width: 95%; /* 전체 페이지 너비를 화면 너비의 95%로 설정*/
+		margin: 0 auto; /* 페이지를 화면 중앙에 배치 */
+	}
+	h2#title {
+		text-align: center;
+		border-bottom: 2px dashed black;
+		padding-bottom: 10px;
+	
+	}
+	ul { 
+		list-style: none; /* 목록 스타일 제거 */
+		padding: 0; /* 안쪽 여백 제거 */
+		margin: 0; /* 바깥쪽 여백 제거 */
+		
+	}
+	li a{
+		display: block; /* link를 블록 요소로 설정 */
+	}
+	.head {		
+		border: 1px solid red;
+		width: 100%;
+		overflow: auto; /* 콘텐츠의 내용이 넘칠 경우 자동으로 스크롤바 추가 */
+		padding: 10px;
+		box-sizing: border-box; /*패딩과 테두디를 포함한 너비 설정 */
+	}
+	.head ul{
+		display: flex; /* flex box 레이아웃 설정 */
+		justify-content: center; /* 항목을 중앙에 배치 */
+		gap: 10px; /* 항목 사이에 간격 추가*/
+	}
+	
+	nav {
+		float: left; /* 왼쪽으로 정렬하여 플로팅*/
+		width: 20%;
+	}
+	
+	#contents {
+		 float: left;
+		 width: 50%;
+	}
+	
+	#ad {
+		float: left;
+		 width: 25%;
+		 text-align: center;
+		 font-size: 0.8em
+	}
+	
+	footer {
+		clear: both; /* 플로팅 해제 */
+		text-align: center;
+	 	margin-top: 20px;
+	}
+	
+	</style>
+	</head>
+	<body>
+	<h2 id="title">CSS로 화면 구조 설정 연습</h2>
+	<header>
+		<h3>여기는 머리글</h3>
+		<div class="head">
+			<ul>
+			<li class="go_site"><a href="https://www.naver.com">네이버</a></li>
+			<li class="go_site"><a href="https://www.korea.com">코리아</a></li>
+			<li class="go_site"><a href="https://www.daum.net">다음</a></li>
+			</ul>
+		</div>
+	</header>
+	<nav>
+		<h3>항목 선택</h3>
+		<ul>
+			<li>메인</li>
+			<li>자동차</li><li>반도체</li><li>배터리</li><li>조선</li>
+		</ul>
+	</nav>
+	<div id="contents">
+		<h3>핫 이슈 (본문)</h3>
+		<p>
+		지난해 자살 사망자 1만 4439명 전년보다 3.3% 증가, 
+		男사망자가 女 2.5배 1983년 통계 작성 이후 역대 네번째
+		금융위기 여파 2011년 이후 가장 많아 심각성 인식, 서둘러 방안 마련해야
+		</p>
+	</div>
+	<div id="ad">
+		<h3>광고 글</h3>
+		<ol>
+			<li>현대</li><li>삼성</li><li>엘지</li>
+		</ol>
+	</div>
+	
+	<footer>
+		<b>나는 바닥글</b> 공지 사항을 적음
+	</footer>
+	
+	</body>
+	</html>
