@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload =() => {
+	document.querySelector("#btnIns").onclick = func;
+}
+function func() {
+	// 입력 자료 오류검사, 정규 표현식 권장
+	if(insFrm.sang.value === ""){
+		alert("상품명 입력");
+		insFrm.sang.focus();
+		return;
+	}
+	// 수량, 단가 생략
+	
+	insFrm.submit();
+}
+</script>
+</head>
+<body>
+** 상품 추가 ** <br/>
+<form action="jspex15ins.jsp" method="post"	name="insFrm">
+품명 : <input type="text" name="sang"><br>
+수량 : <input type="text" name="su"><br>
+단가 : <input type="text" name="dan"><br>
+<input type="button" id="btnIns" value="상품 등록">
+</form>
+</body>
+</html>

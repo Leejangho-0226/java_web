@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-latest.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#btnIns").click(function() {
+			if ($("#writer").val() === "") {
+				alert("이름 입력");
+				return;
+			} else if (isNaN($("#writer").val()) === false) {
+				alert("이름 문자만 허용!");
+				$("#writer").val("");	
+				return;
+			}
+			$("#frm").submit();
+		});
+
+		$("#btnList").bind("click", listFunc);
+
+	});
+
+	function listFunc() {
+		location.href = "jspex17dbcp.jsp"; // 여기로 이동
+	}
+</script>
+</head>
+<body>
+	** 방명록 추가 **
+	<br>
+	<form action="jspex17ins.jsp" method="post" id="frm">
+		작성자 : <input type="text" name="writer" id="writer"><br> 
+		제 &nbsp;&nbsp;목 : <input type="text" name="title" id="title"><br> 
+		내 &nbsp;&nbsp;용 : <input type="text" name="contents" id="contents"><br> 
+			<input type="button" id="btnIns" value="방명록 추가">
+			<input type="reset" value="입력취소">
+			<input type="button" value="방명록 보기" id="btnList">
+
+	</form>
+</body>
+</html>
