@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax test</title>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script type="text/javascript">
+window.onload = () => {
+	document.querySelector("#btn1").onclick = funcJs;
+	document.querySelector("#btn2").onclick = funcFetch;
+	document.querySelector("#btn3").onclick = funcAsync;
+	document.querySelector("#btn4").onclick = funcAxios;
+	
+	document.querySelector("#btnApi1").onclick = funcApi1;
+	document.querySelector("#btnApi2").onclick = funcApi2;
+}
+
+let xhr;
+function funcJs(){  // btn1
+	xhr = new XMLHttpRequest();
+	
+	xhr.open("get", "js36my.json", true);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4 && xhr.status === 200){
+			processFunc();
+		}
+	}
+	xhr.send();
+}
+//function processFunc(){
+let processFunc = () => {
+	let datas = xhr.responseText;
+	let parseData = JSON.parse(datas);
+	let str = "";
+	for(let i=0; i < parseData.sangpum.length; i++){
+		str += parseData.sangpum[i].code + " " + parseData.sangpum[i].sang + "<br>"; 
+	}
+	document.querySelector("#show1").innerHTML = str;
+}
+
+function funcFetch(){  // btn2
+	const url = "js36my.json";
+	fetch(url, {method:"GET"})   // {method:"GET"} 생략 가능
+		.then(response => {   
+			if(response.status === 200){
+				return response.json();
+			}else{
+				console.log(`HTTP error : ststus = ${response.status}`);
+			}
+		})
+		.then(parseData => {  // JSON.parse()가 된 상태의 data
+			let str = "";
+			for(let i=0; i < parseData.sangpum.length; i++){
+				str += parseData.sangpum[i].code + " " + parseData.sangpum[i].sang + "<br>"; 
+			}
+			document.querySelector("#show2").innerHTML = str;
+		})
+		.catch(err => {
+			console.error(err);
+		});
+}
+
+async function funcAsync(){  // btn3
+	const url = "js36my.json";
+	const response = await fetch(url);
+	const parseData = await response.json();
+	
+	let str = "";
+	for(let i=0; i < parseData.sangpum.length; i++){
+		str += parseData.sangpum[i].code + " " + parseData.sangpum[i].sang + "<br>"; 
+	}
+	document.querySelector("#show3").innerHTML = str;
+}
+
+function funcAxios(){  // btn4
+	const url = "js36my.json";
+	// axios : 브라우저, Node.js를 위한 Promise API를 활용하는 HTTP 비동기 통신 라이브러리이다.
+	axios.get(url)
+		.then(response => {
+			console.log(response.data);       // 서버가 제공하는 응답 데이터
+			console.log(response.status);     // HTTP 상태 코드
+			console.log(response.statusText); // HTTP 상태 메세지
+			console.log(response.headers);    // HTTP 헤더 정보
+			console.log(response.config);     // Axios가 제공하는 구성 정보
+		
+			return response.data;
+		})
+		.then(parseData => {  // JSON.parse()가 된 상태의 data
+			let str = "";
+			for(let i=0; i < parseData.sangpum.length; i++){
+				str += parseData.sangpum[i].code + " " + parseData.sangpum[i].sang + "<br>"; 
+			}
+			document.querySelector("#show4").innerHTML = str;
+		})
+		.catch(err => {
+			console.error(err);
+		});
+		
+}
+
+function funcApi1(){
+	const REST_API_KEY = `cc28cdf062ad3d0671585ce4df7a6249`;
+	const bookname = document.querySelector("#book").value;
+	const query=`?query=${bookname}`;
+	
+	fetch(`https://dapi.kakao.com/v3/search/book${query}`,{
+		method:'get',
+		headers:{
+			Authorization:`KakaoAK ${REST_API_KEY}`,
+		},
+	})
+	.then(response => {
+		return response.json();
+	})
+	.then(data => {
+		console.log(data.documents.length);
+		console.log(data.documents);
+		
+		let str = "";
+		for(let i=0; i < data.documents.length; i++){
+			str += data.documents[i].authors + ", " +
+				data.documents[i].title + ", " +
+				data.documents[i].price + ", " +
+				data.documents[i].publisher + "<br>";
+		}
+		document.querySelector("#showApi").innerHTML = str;
+	})
+	.catch(err => {
+		console.err(err);
+	});
+}
+	
+function funcApi2(){
+	
+}
+
+
+</script>
+</head>
+<body>
+<h2>Ajax 사용 정리</h2>
+<button id="btn1">기본적 방법</button><br>
+<button id="btn2">fetch 방법</button><br>
+<button id="btn3">async 방법</button><br>
+<button id="btn4">axios 방법</button><br>
+<br>
+Kakao 도서검색 Api 사용<br>
+도서명 : <input type="text" id="book" value="자바"><br>
+<button id="btnApi1">도서검색(fetch)</button><br/>
+<button id="btnApi2">도서검색(axios)</button><br/>
+<hr>
+<div id="show1"></div>
+<div id="show2"></div>
+<div id="show3"></div>
+<div id="show4"></div>
+<br>
+<div id="showApi"></div>
+<br>
+<div id="showApi2"></div>
+</body>
+</html>

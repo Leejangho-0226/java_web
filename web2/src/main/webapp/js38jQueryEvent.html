@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+   
+<script type="text/javascript">
+   function tdclickFunc(msg) {
+      alert(msg);
+   }
+
+   $(document).ready(function() {
+      $("td").click(function() {
+         alert($(this).text());
+      });
+
+	$("div.hello").dblclick(function(){
+		alert($(this).text());
+	}); 
+	
+	$("#txtA").keydown(function(event){
+		$("#txtCode").val(event.keyCode);
+	});
+	
+	// bind 메소드로 이벤트 장착, unbind : 해제
+	// addEventListener() : js
+	//$("#btn").onclick(functio(){...});
+	$("#btn").bind("click", function(){ //이벤트 장착
+		alert("버튼 이벤트 장착 후 실행");
+		
+		$("#btn").unbind("click");// 이벤트 해제
+	});
+	
+	let count = 0;
+	$("#myArea").bind("mouseenter mouseleave", function(event){ // 이벤트 복수 처리
+		count += 1;
+		$("#msgResult").text(count + "enter 또는 leave");
+		
+		if(event.type === "mouseenter"){
+			$("#msgResult").css("background-color", "red");
+		}else if(event.type === "mouseleave") {
+			$("#msgResult").css("background-color", "yellow");
+		}
+	});
+	
+});
+</script>
+</head>
+<body>
+   <h2>jQuery Event 처리</h2>
+   <table>
+      <tr>
+         <td onclick="tdclickFunc('이벤트 처리')">컴퓨터</td>
+         <td>마우스</td>
+         <td>모니터</td>
+      </tr>
+   </table>
+<br>
+<div class="hello">더블 클릭 대상</div>
+<br>
+키보드 이벤트용 문자 입력 : 
+<input type="text" id="txtA">
+<input type="text" id="txtCode">
+<br><br>
+<button id="btn">bind 이벤트 연습</button>
+<br>
+<div id="myArea" style="background-color: yellow;">
+	마우스 올리고 내리기 : <span id="msgResult"></span>
+</div>
+</body>
+</html>

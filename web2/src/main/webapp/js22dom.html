@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function abc(){
+	// alert("a");
+	let aa = document.getElementById("my");
+	
+	// DOM 명령어 사용하기
+	console.log(aa.nodeName + " " + aa.firstChild.nodeValue + " " 
+			+ aa.childNodes[0].nodeValue);
+	console.log(aa.getAttribute("id"));
+	console.log(aa.getAttribute("comments"));
+}
+function def(){
+	// alert("b");
+	let arr = document.getElementsByTagName("input"); // 문서 내에서 input 요소를 모두 선택
+	console.log("arr 크기 : "	, arr.length);
+	console.log(arr[0].getAttribute("value"));
+	console.log(arr[1].getAttribute("value"));
+}
+function func(para){
+	// alert("para");
+	let ele = document.createElement("i") // i tag 생성
+	let text = document.createTextNode(para); // 안녕
+	ele.appendChild(text); // <i>안녕</i>
+	
+	// id가 show인 div 태그의 자식으로 i tag를 추가
+	document.getElementById("show").appendChild(ele);
+}
+function clsFunc(){
+	let target = document.getElementById("show");
+	
+	// target.removeChild(target.lastChild); // 요소가 맨뒤부터 지워짐
+	//target.removeChild(target.firstChild); // 요소가 앞부터 지워짐
+	while(target.hasChildNodes()){
+		target.removeChild(target.childNodes[0]); // 한번에 지우기
+	}
+	
+}
+</script>
+</head>
+<body>
+<h3>DOM(Document Object Model)</h3>
+DOM (Document Object Model)은 웹 문서의 구조화된 표현이다. 
+이것은 프로그래밍 언어가 웹 페이지 내의 객체에 접근하고 조작할 수 있게 하는 인터페이스로 동작한다. 
+주로 자바스크립트에서 웹 페이지의 요소를 선택, 수정, 추가 또는 제거할 때 사용된다.
+<hr>
+<h2 id="my" comments="이건 속성">DOM 객체 참조</h2>
+<input type="button" value="id검색" onclick="abc()"><br>
+<input type="button" value="element 검색" onclick="def()"><br>
+<hr>
+<h2>요소 생성 및 삭제</h2>
+<button onclick="func('안녕')">요소(element) 생성1</button>
+<button onclick="func('반가워')">요소(element) 생성2</button>
+<button onclick="clsFunc()">요소 삭제</button>
+<hr>
+<div id="show"></div>
+</body>
+</html>

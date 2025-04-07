@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*
+window.onload = function(){
+	alert("a");
+}
+*/
+
+window.onload = () => { // 위와 같은것
+	// alert("aa");
+	document.getElementById("colorW").onclick = function(){
+		//document.bgColor = "white"; // 비권장
+		document.body.style.backgroundColor = "white"; // 권장
+	}
+	
+	document.getElementById("colorG").onclick = () => {
+		//document.bgColor = "#00ff00"; // 비권장
+		document.body.style.backgroundColor = "#00ff00"; //권장
+	}
+	/*
+		document.getElementById("colorR").onclick = () => {
+		document.bgColor = "rgb(225,0,0)"; // rgb(100%,0%,0%) // 비권장
+	 }
+	*/
+		document.querySelector("#colorR").onclick = () => {
+		document.body.style.backgroundColor = "rgb(225,0,0)"; // rgb(100%,0%,0%), 권장
+	}
+	
+		
+	// 이벤트 종류 연습
+	document.querySelector(".hello").onclick = function(){
+		document.querySelector("#show").innerText = "안녕하세요";
+	}
+	
+	document.querySelector("#calc").ondblclick = function(){
+		let ss = `연산결과는 ${10 + 5}`;
+		document.querySelector("#show").innerText = "ss";
+	}
+	
+	// hover : mouseover + mouseout
+	document.querySelector("#irum").onmouseover = function(){
+		document.querySelector("#show").innerHTML = "<h2>난 신기해라고 해";
+	}
+	document.querySelector("#irum").onmouseout = function(){
+		document.querySelector("#show").innerHTML = "";
+	}
+	
+	// a tag : click 이벤트가 기본 등록됨, 기본 이벤트 해제
+	document.querySelector("#daum").onclick = function(event){
+		event.preventDefault(); // 해당 태그의 고유 이벤트 해제
+		console.log(event);
+		// 다른 기능 구현해보기
+		console.log(`x좌표:${event.x} y좌표:${event.y}`);
+	}
+	
+	// select tag
+	const sdata = document.querySelector("#sel")
+	
+	/* 바꿀때마다 이전것이 한번더 출력됨
+	sdata.onclick = function(){
+		document.querySelector("#show").innerHTML = sdata.value;
+		console.log(sdata.value);
+	}
+	*/ 
+	sdata.onchange = function(){
+		document.querySelector("#show").innerHTML = sdata.value;
+		console.log(sdata.value);
+	}
+	
+}
+
+
+</script>
+</head>
+<body>
+* 여러 이벤트 종류 중 일부 경험 *
+<br>
+<input type="button" value="흰색" id="colorW">
+<!--  
+<input type="button" value="녹색" id="colorG">
+<input type="button" value="적색" id="colorR">
+-->
+<span id="colorG">녹색</span>
+<b id="colorR" style="border: 1px solid black; cursor:pointer;">적색</b>
+<hr>
+이벤트 종류 연습<br>
+<button id="hello" class="hello">인사하기(click)</button>
+<button id="calc">계산하기(double click)</button>
+<button id="irum">이름알기(mouse over)</button>
+
+<br><br>
+<a href="https://m.daum.net" id="daum">앵커 태그 클릭</a>
+<br><br>
+<select id="sel">
+	<option value="프로그래머">프로그래머</option>
+	<option value="웹퍼블리서">웹퍼블리서</option>
+	<option value="프로게이머">프로게이머</option>
+</select>
+
+
+<hr>
+<div id="show">출력장소</div>
+</body>
+</html>

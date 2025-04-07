@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>class 키워드 사용 : 기존의 prototype 기반의 클래스 작성보다 좀 더 명료한 클래스 작성이 가능</h3>
+<script type="text/javascript">
+class Class1{
+	addr = "서울"; // 멤버변수는 let을 쓰지 않는다.
+	// name; <----- 멤버변수 name; 은 생성자로 값을 받는 경우 생략 가능 
+	
+	constructor(name){ // 생성자
+		this.name = name;
+	}
+	
+	sayHi(){ // 메소드
+		document.write("<br>", this.name);
+		document.write("<br>", this.addr);
+		
+		let msg = "프로그래머";  // 지역 변수는 let을 적는다.
+		
+		return`<br>이름은 ${this.name} ${msg}`;
+	}
+}
+
+let class1 = new Class1("신기해");
+document.write(class1);
+document.write(class1.sayHi());
+document.write("<br> 이름은 ", class1.name);
+document.write("<br> 주소는 ", class1.addr);
+
+document.write("<br>😊새로운 객체 생성 ^^;");
+let class2 = new Class1("백두산");
+document.write(class2.sayHi());
+
+</script>
+<hr>
+<script type="text/javascript">
+document.write("새로운 클래스 생성 ---------------");
+class Class2{
+	subject = "자바스크립트";
+	
+	// constructor(){}; // 생성자 오버로딩 x 
+	
+	constructor(name, age){ // 생성자
+		this.name = name; // 멤버변수에 값 치환
+		this.age = age;
+	}
+	
+	printData(){
+		document.write(`<br>이름은 ${this.name}이고 나이는 ${this.age}`);
+		document.write(`<br>수강 과목은 ${this.subject}`);
+	}
+	
+	 get getSubject(){ // 가독성을 위해 사용 가능
+		return this.subject;
+	}
+	 set setSubject(subject){ // 가독성을 위해 사용 가능
+		this.subject = subject;
+	}
+}
+
+let myclass = new Class2("저팔계", 33);
+myclass.printData();
+document.write("<br> 이름은 ", myclass.name);
+document.write("<br> 나이는 ", myclass.age);
+
+myclass.subject = "파이썬";
+document.write("<br> 과목은 ", myclass.subject);
+
+// myclass.setSubject("MariaDB"); // 가독성을 위해 사용 가능
+myclass.setSubject = "MariaDB"
+document.write(`<br> 과목은 `, myclass.getSubject);
+</script>
+<hr>
+<script type="text/javascript">
+class Class3{
+	#name;  // private 멤버 변수
+	age;	// private 멤버 변수
+	static addr = "서울";
+	
+	constructor(name, age){ // 생성자
+		this.#name = name; // 멤버변수에 값 치환
+		this.age = age;
+	}
+	
+	showData(){
+		document.write("<br>", this.#name, this.age);
+	}
+}
+
+const person = new Class3('공기밥', 23);
+document.write(person);
+document.write("<br>", person.age);
+document.write("<br>", Class3.addr); // static이라 클래스로 받아야함
+document.write("<br>", person.name); // undefined
+person.showData();
+
+</script>
+</body>
+</html>

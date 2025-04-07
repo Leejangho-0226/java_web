@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>반복문</title>
+</head>
+<body>
+	<h2>for test</h2>
+	<script type="text/javascript">
+		for (let a = 1; a <= 5; a++) {
+			document.write("a는 " + a + "<br>");
+		}
+		// document.write("a는 " + a + "<br>");	// Uncaught ReferenceError: a is not defined
+		for (var b = 1; b <= 10; b += 2) {
+			document.write("b는 " + b + "<br>");
+		}
+		document.write("b는 " + b + "<br>");
+		document.write("<br>" + "다중 for" + "<br>");
+		for (let c = 1; c <= 3; c++) {
+			document.write("c는 " + c + "&nbsp;&nbsp;");
+			for (let d = 1; d <= 4; d++) {
+				document.write("d는 " + d + "&nbsp;&nbsp;");
+			}
+			document.write("<br>");
+		}
+		document.write("<br>구구단 출력<br>");
+		let dan = +prompt("단 입력", "2");
+		if (isNaN(dan)) { // NaN: Not a Number
+			alert("숫자만 허용") // 경고 대화상자를 띄운다.
+		} else if (dan >= 2 && dan < 10) {
+			document.write(`${dan}단<br>`);
+			for (let a = 1; a < 10; a++) {
+				document.write(`${dan}*${a}=${dan*a}<br>`);
+			}
+		} else {
+			alert("2~9 사이의 정수만 허용")
+		}
+		document.write("<br>2~9까지 구구단 출력: table tag 사용, 짝수 단은 배경 색이 노랑<br>");
+		document.write("<table>")
+		for (let a = 2; a < 10; a++) {
+			if ((a % 2) === 0) {
+				document.write("<tr style='background-color:yellow'>");
+			} else {
+				document.write("<tr>");
+			}
+			for (let b = 1; b < 10; b++) {
+				document.write(`<td>${a}*${b}=${a*b}&nbsp;&nbsp;&nbsp;</td>`)
+			}
+		}
+		document.write("</table>")
+		document.write("<hr>continue, break 사용")
+		for (let k = 1; k <= 10; k++) {
+			if (k === 3)
+				continue;
+			document.write(k + " ");
+			if (k == 7)
+				break;
+		}
+</script>
+</body>
+</html>

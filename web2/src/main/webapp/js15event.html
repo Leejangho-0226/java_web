@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function colorChange() {
+		//alert(document.frm.bcolor.value);	// 확인할 때 사용하기 좋음
+		document.body.bgColor = document.frm.bcolor.value;
+		document.body.text = document.frm.tcolor.value;
+	}
+</script>
+</head>
+<body>
+	<h2>이벤트 연습</h2>
+	<form name="frm">
+		<table border="1">
+			<tr>
+				<td colspan="2">색상을 선택</td>
+			</tr>
+			<tr>
+				<td><b>배경색: </b></td>
+				<td><select name="bcolor">
+						<option value="black">검정</option>
+						<option value="blue">파랑</option>
+						<option value="green">초록</option>
+						<option value="white" selected="selected">하양</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td><b>글자색: </b></td>
+				<td><select name="tcolor">
+						<option value="black" selected="selected">검정</option>
+						<option value="blue">파랑</option>
+						<option value="green">초록</option>
+						<option value="white">하양</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center"><input type="button"
+					value="변경" onclick="colorChange()"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

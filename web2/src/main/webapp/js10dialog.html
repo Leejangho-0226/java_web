@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>dialog box</title>
+<script type="text/javascript">
+function dispData(su1, su2, op){
+	// alert(su1 + " " + su2 + " " + op);
+	let s1 = parseInt(su1); // 형변환(정수화)
+	let s2 = parseInt(su2);
+	
+	let re = "";
+	if(op === "+"){
+		re = s1 + s2;
+	}else if(op === "-"){
+		re = s1 - s2;
+	}else if(op === "*"){
+		re = s1 * s2;
+	}else if(op === "/"){
+		re = s1 / s2;
+	}else{
+		re = "연산 오류"
+	
+	}
+	 
+	alert("연산 결과 : " + re);
+}
+</script>
+</head>
+<body>
+<h2>대화상자 관련 내장함수(alert, confirm, prompt)</h2>
+<script type="text/javascript">
+/*
+let irum = "가나다";
+let tel = "111-1111";
+alert(`이름은 ${irum} \n전화는 ${tel}`); // 메세지 창 (경고 창), 창을 닫을 때까지 일시 정지
+console.log('alert 창 수행 후 처리됨');
+document.write("<br>alert 창 수행 후 처리됨")
+
+let result = confirm("계속 할까요(종료 작업)?\n버튼 선택"); // 선택창 
+document.write("<br>선택한 값은", result);
+if(result === true) window.close();
+// if(result === true) document.write("확인 버튼 누름");
+
+let juso = prompt("사는 곳 입력", "서울");
+document.write("<br>주소는", juso);
+*/
+
+// 실습 : prompt를 사용해 두 수와 연산자가 있는 수식을 입력받아 disp 함수를 호출하여 연산 결과 출력하기
+let data = prompt("수식을 입력:", "10 + 3");
+let arr = []; // 두 수와 연산자를 분리해 기억하기 위함 
+for(let i=0; i < 3; i++){
+	arr = data.split(' ');
+}
+
+dispData(arr[0], arr[2], arr[1]);
+
+
+
+</script>
+</body>
+</html>

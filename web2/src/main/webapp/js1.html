@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js</title>
+</head>
+<body>
+** 자바 스크립트 **<p/>
+<script type="text/javascript">
+<!--
+window.document.write("환영합니다. 브라우저에 출력"); // 클라우저
+console.log("반가워요 라는 메세지는 표준 출력장치 console로 출력") // 개발자 입장
+window.document.write("<h1>환영합니다. <i>브라우저</i>에 출력</h1>");
+-->
+</script>
+<br>
+다시 html 처리하다가
+<br>
+<script type="text/javascript">
+document.write("여기는 자바 스크립트"); 
+
+let a = 10;
+let b = a + 10;
+document.write("<br>b : ", b);
+console.log("b : ", b);
+</script>
+<br>
+<script type="text/javascript">
+"use strict";   // 엄격 모드 - 모던한 방식(ECMA6 이후 문법을 따름)으로 동작함
+// kbs = 9; 에러
+let kbs = 9;
+document.write("<br>kbs : ", kbs);
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>미니 계산기</title>
+<script type="text/javascript">
+        function calculate() {
+            let num1 = parseFloat(document.frm.num1.value);
+            let num2 = parseFloat(document.frm.num2.value);
+            let sign = document.frm.sign.value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').innerText = "결과: 잘못된 입력입니다.";
+                return;
+            }
+
+            switch (sign) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 === 0) {
+                        document.getElementById('result').innerText = "결과: 0으로 나눌 수 없습니다.";
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+
+            document.getElementById('result').innerText = "결과: " + num1 + " " + sign + " " + num2 + " = " + result;
+        }
+
+        function reset() {
+            document.frm.num1.value = "";
+            document.frm.num2.value = "";
+            document.frm.sign.value = "+";
+            document.getElementById('result').innerText = "결과: ";
+        }
+
+        function closeCalculator() {
+            window.close();
+        }
+    </script>
+</head>
+<body>
+    <form name="frm">
+        <table border="1">
+            <tr><td colspan="2" style="text-align: center; background-color: black; color: white;">미니 계산기</td></tr>
+            <tr>
+                <td><b>숫자 1:</b></td>
+                <td><input type="number" name="num1" placeholder="숫자 1을 입력하세요"></td>
+            </tr>
+            <tr>
+                <td><b>숫자 2:</b></td>
+                <td><input type="number" name="num2" placeholder="숫자 2을 입력하세요"></td>
+            </tr>
+            <tr>
+                <td><b>연산 선택:</b></td>
+                <td>
+                    <select name="sign">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <input type="button" value="계산" onclick="calculate()">
+                    <input type="button" value="초기화" onclick="reset()">
+                    <input type="button" value="종료" onclick="closeCalculator()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <div id="result"><b>결과: </b></div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

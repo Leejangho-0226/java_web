@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구구단 출력</title>
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("dan").onchange = function() {
+			let selectedNumber = frm.dan.options[frm.dan.selectedIndex].value;
+			if (!isNaN(selectedNumber)) {
+				for (let i = 1; i <= 9; i++) {
+					let row = document.createElement("tr");
+					let col1 = addColFunc(selectedNumber + " x " + i);
+					let col2 = addColFunc(selectedNumber * i);
+					row.appendChild(col1);
+					row.appendChild(col2);
+					document.getElementById("myTbody").appendChild(row);
+				}
+			}
+		};
+
+		document.getElementById("clearBtn").onclick = function() {
+			clearTable();
+		};
+	}
+
+	function addColFunc(data) {
+		let col = document.createElement("td");
+		let text = document.createTextNode(data);
+		col.appendChild(text);
+		return col;
+	}
+	function clearTable() {
+		document.getElementById("myTbody").innerHTML = "";
+	}
+</script>
+</head>
+<body>
+	<h2>* 구구단 출력 *</h2>
+	<form action="#" name="frm">
+		구구단 선택: <select name="dan" id="dan">
+			<option value="2">2단</option>
+			<option value="3">3단</option>
+			<option value="4">4단</option>
+			<option value="5">5단</option>
+			<option value="6">6단</option>
+			<option value="7">7단</option>
+			<option value="8">8단</option>
+			<option value="9">9단</option>
+		</select>
+		<button id="clearBtn">삭제</button>
+	</form>
+	<br>
+	<table id="myTable" border="1">
+		<tbody id="myTbody">
+
+		</tbody>
+	</table>
+</body>
+</html>

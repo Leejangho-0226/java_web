@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+함수(function)란?<br>
+특별한 목적의 작업을 수행하도록 설계된 독립적인 실행 영역(볼록)을 말한다.<br>
+<pre>
+함수 수정 요소
+1) 함수 이름
+2) 매개변수(parameter)
+3) 본문({ }로 둘러 쌓인 자바스크립트 실행문틀)
+
+function 함수명([매개변수,...]){
+	실행문...
+	[return 반환 값]
+}
+
+함수는 내장함수와 사용자 정의 함수로 나뉨
+</pre>
+<hr>
+<script type="text/javascript">
+document.write("<br>")
+document.write("내장함수 중 문자 관련 예 ---");
+let str = "Java script Language";
+document.write(`<br>str.charAt(2) : ${str.charAt(2)}`);
+document.write(`<br>str.indexOf('v') : ${str.indexOf('v')}`);
+document.write(`<br>str.indexOf('k') : ${str.indexOf('k')}`);
+document.write(`<br>str.substring(1, 3) : ${str.substring(1, 3)}`); // 1이상 3미만 지점에 문자열 추출
+document.write(`<br>str.slice(1, 5) : ${str.slice(1, 5)}`); // 시작인덱스 이상 끝인덱스 미만
+document.write("<br>")
+// ...
+
+document.write("<br>")
+document.write("내장함수 중 스타일 관련 예 ---");
+document.write(`<br>str.bold() : ${str.bold()}`);
+document.write(`<br>str.big().strike().fontsize(24) : ${str.big().strike().fontsize(24)}`);
+document.write("<br>")
+// ...
+
+document.write("<br>")
+document.write("내장함수 중 수학 관련 예 ---");
+document.write(`<br>Math.abs(-7) : ${Math.abs(-7)}`);
+document.write(`<br>Math.round(3.6) : ${Math.round(3.6)}`);
+document.write(`<br>Math.random() : ${Math.random()}`); 
+document.write("<br>")
+// ...
+
+document.write("<br>")
+document.write("내장함수 중 날짜 관련 예 ---");
+let d = new Date();
+document.write(`<br>Date() : ${Date()}`);
+document.write(`<br>d : ${d}`);
+document.write(`<br>${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일 ${d.getHours}시`);
+// d.getMonth()는 0부터 시작해서 +로 해당월을 계산해줘야함
+// ... 
+document.write("<br>")
+document.write("내장함수 중 기타 예 ---");
+document.write(`<br>parseInt : ${parseInt("3.7") + 5}`); // 버림
+document.write(`<br>parseFloat : ${parseFloat("3.7") + 5}`); // 실수화
+document.write("<br>")
+
+
+// 별도 창 열기 : open('파일명', '출력형태', '속성')
+open('js1.html','_blank', 'width=300,height=200,left=100,top=200,resizable=yes');
+//....
+
+
+
+</script>
+</body>
+</html>

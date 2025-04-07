@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>조건 판단문</title>
+</head>
+<body>
+<h2> * if test *</h2>
+<script type="text/javascript">
+const ir = "tom";
+if(ir === "tom") { // java의 equals에 해당
+	document.write("맞아요");
+	document.write("<br>참인 경우");
+}else{
+	document.write("틀려요");
+}
+
+let su = 20;
+if(su % 2 === 0)
+	document.write("<br>짝수");
+else
+	document.write("<br>홀수");
+
+// Number (prompt("점수 입력", "80"))
+// let jumsu = +prompt("점수 입력", "80") // 실행 도중 키보드로 값 얻기
+let jumsu = 88;
+if(jumsu >= 70){
+	if(jumsu >= 90){
+		document.write("<br><span style='color:blue'>90 이상</span>");
+	}else if(jumsu >= 80){
+		document.write("<br>80 이상</b>");
+	}else{
+		document.write("<br>70 이상");
+	}
+}else {
+	document.write("<br>70 미만");
+}
+</script>
+<br>
+<h2>* switch test *</h2>
+<script type="text/javascript">
+// let hakjum = prompt("학점 입력", "B")
+let hakjum = "b";
+switch(hakjum.toUpperCase()) { // toUpperCase() : 소문자를 대문자로
+case "A":
+	document.write("매우 우수");
+	break;
+case "B":
+case "C":	
+	document.write(`${hakjum}은 우수라는 평가를 받음`);
+	break;
+case "D":
+	document.write("저조");
+	break;
+default:
+	document.write("기타");
+}
+</script>
+</body>
+</html>

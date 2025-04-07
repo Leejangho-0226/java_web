@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function ourFunc(){ // 이벤트 처리 함수 (이름은 맘대루~)
+	console.log('ok');
+	let dateTime = "2025-2-28";
+	let arrData = dateTime.split('-');
+	console.log(`${arrData[0]}년 ${arrData[1]}월 ${arrData[2]}일`);
+}
+</script>
+</head>
+<body>
+<h2>이벤트 처리 이해</h2>
+<a href="https://www.naver.com">네이버</a>
+<br>
+<a href="javascript:ourFunc()">이벤트 처리 함수 호출 1</a>
+<br>
+<!-- onclick : 이벤트 핸들러 -->
+<input type="button" value="이벤트 처리 함수 호출 2" onclick="ourFunc()">
+<br>
+<button onclick="ourFunc()">이벤트 처리 함수 호출 3</button>
+
+
+
+
+
+</body>
+</html>

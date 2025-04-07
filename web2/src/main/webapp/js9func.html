@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 작성</title>
+<script type="text/javascript">
+// head tag 에서 함수를 선언한 후 body에서 필요할 때 호출하는 것이 일반적이다.
+function bb(){
+	document.write("bb 함수 실행 성공<br>");
+	
+	// return; // 함수 무조건 탈출 , 아래문은 무시된다
+	
+	cc(5);  // 함수가 다른 함수 호출 가능, 반환 값은 무시함
+	let result = cc(5); // 반환값 변수에 저장
+	document.write(`<br>result : ${result}`);
+	
+	document.write(`<br>result : ${cc(10)}`);
+	
+	
+	// --------------- dd 함수 호출 -------------------
+	dd(7, 8);
+	dd(7, 8, 9);  // 세번째 인자는 무시
+	dd(7);        // 7, undefined 
+	
+	document.write("<hr>")
+	// --------------- hello 함수 호출 (일급 객체)-------------------
+	hello();
+	
+}
+
+function cc(para){ 	// 매개변수가 있는 함수
+	let kk = para + 10;
+	document.write(`<br>kk는 ${kk}`);
+	
+	
+	return kk; 	// 함수의 반환 값은 1개만 가능
+}
+
+function dd(kbs, mbc){
+	document.write(`<br>dd 함수에서 ${kbs},${mbc} 출력`);
+	
+}
+
+// 자바스크립트는 일급객체 지원
+function f1(){
+	document.write(`<br>안녕 f1 처리`);
+}
+function f2(func){  // 매개변수로 함수 사용
+	func();	 // 매개변수로 받은 함수 실행
+}
+function f3(){
+	// return f1(); // 함수의 return 값을 반환
+	return f1; // 함수를 반환
+}
+
+function hello(){
+	// f2(f1()); // 인수로 값 사용 f2함수를 호출하며 함수f1 실행 후 return값 전달, 
+	f2(f1); // 인수로 함수 사용, f2함수를 호출하며 함수f1을 전달 , f1함수 자체를 들고가는것 주소를 가지고 가는것
+	
+	let myFunc = f3();
+	myFunc();
+	f3()(); // 반환된 f1 함수를 실행한 것
+	
+}
+</script>
+</head>
+<body>
+<h2>사용자 정의 함수</h2>
+<script type="text/javascript">
+let count = 0;
+function aa(){
+	count += 1;
+	let imsi = count; // 함수 내에서 유효한 지역변수
+	document.write(count + "번 수행<br>");
+}
+
+aa(); // 함수 호출
+document.write("뭔가를 하다가 ...<br>");
+aa(); // 함수 호출
+document.write("함수는 참조형 타입 : ", typeof aa);
+</script>
+<h3>첫번째 JS 수행 후 body에서 문안인사 안녕~~~~</h3>
+<script type="text/javascript">
+aa();
+</script>
+<h3>head에 선언한 함수 호출</h3>
+<script type="text/javascript">
+bb(); 
+</script>
+</body>
+</html>

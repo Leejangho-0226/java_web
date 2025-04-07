@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("sel").onchange = function(){
+		let sangpum = comment = "";
+		
+		let sel = frm.sel.options[frm.sel.selectedIndex].value;
+		console.log(frm.sel.selectedIndex, " ", sel); // 1 '1000' ...
+		let sang = frm.sel.options[frm.sel.selectedIndex].text;
+		// alret(sang + " " + sel);
+		
+		sangpum = sang;
+		if(sel === '1000'){
+			comment = "볼펜은 모나미";
+		}else if(sel === '2000'){
+			comment = "내 일상을 잘 정리해둠";
+		}else if(sel === '3000'){
+			comment = "움직임이 예술";
+		}
+		
+		// alert(sangpum + " " + comment);
+		
+		addRowFunc(sangpum, comment); // table에 tr 추가
+		
+	}
+}
+
+
+function addRowFunc(sangpum, comment){
+	// tr 작업
+	let row = document.createElement("tr");
+	
+	let col = addColFunc(sangpum);
+	row.appendChild(col); // <tr><td>볼펜</td></tr>
+	
+	col = addColFunc(comment);
+	row.appendChild(col); // <tr><td>볼펜</td><td>볼펜은 모나미</td></tr>
+	
+	document.getElementById("myTbody").appendChild(row);
+}
+
+function addColFunc(data){
+	// td 작업
+	let col = document.createElement("td");
+	let text = document.createTextNode(data);
+	col.appendChild(text); // <td>볼펜</td>
+	return col;
+}
+</script>
+</head>
+<body>
+<h2>* DOM Test *</h2>
+<form action="#" name="frm">
+상품 선택 :
+<select name="sel" id="sel">
+	<option value="">선택</option>
+	<option value="1000">볼펜</option>
+	<option value="2000">노트</option>
+	<option value="3000">마우스</option>
+</select>
+</form>
+<br>
+<div id="header"></div>
+
+<table id="myTable">
+	<tbody id="myTbody">
+	<!-- DOM 사용
+	<tr>
+		<td>값</td>
+	</tr>	
+	 -->
+	</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item>
+		<code price="5000">10</code>
+		<sangpum>JS 기본이해</sangpum>
+	</item>
+	<item>
+		<code price="35000">20</code>
+		<sangpum>자바 이해</sangpum>
+	</item>
+	<item>
+		<code>30</code>
+		<sangpum>자바 활용</sangpum>
+	</item>
+</items>

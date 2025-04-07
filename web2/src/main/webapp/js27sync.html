@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>동기(sync), 비동기(async) 처리 이해</h2>
+<script type="text/javascript">
+/*
+function myProcess(){ 	// 동기처리 연습용 함수
+	// JavaScript는 single thread를 사용하므로 Event Loop를 이용해 멀티테스킹의 효과를 볼 수 있다.
+	// 동기 처리(순차적)
+	const now = new Date();
+	const delay = now.getTime() + 3000;
+	
+	while(new Date().getTime() < delay){
+		// 뭔가를 수행 : 예 - 네트워크, 웹크롤링, 웹 자료 읽기...
+	}
+	console.log('수행완료');
+}
+*/
+
+function myProcess(){ 	// 비동기처리 연습용 함수 : 먼저 처리되는 순서대로 나오는 방식(멀티테스킹 하는 효과)
+	// setTimeout(); 비동기 처리를 목적으로 지원하는 함수
+	setTimeout(() => { // callback 함수는 3초 후에 호출됨
+		console.log('완료');
+	}, 3000);
+}
+
+
+console.log("hello"); // 처리요청1
+myProcess();		  // 처리요청2
+console.log("world"); // 처리요청3
+
+</script>
+</body>
+</html>

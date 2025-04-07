@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>외부 모듈에서 export한 멤버는 현재 모듈(js)에서 import 할 수 있다.</h3>
+<script type="module"> // "text/javascript"
+import {user} from "./js30.js";
+console.log(user);
+
+import {msg} from "./js30.js";
+console.log(msg," ", msg['name'] + " " + msg['price']);
+
+import {sayHi} from "./js30.js";
+console.log(sayHi("김밥"));
+
+import tom from "./js30.js"; // default가 export인 경우 { } 생략가능
+console.log(tom);
+
+import {datas} from "./js30.js";
+console.log(datas[0], " ", datas[1], " ", datas[2]);
+
+import {f1, f2} from "./js30.js"; // 두 개(복수)의 함수 받기
+console.log(f1("관우"));
+console.log(f2("장비"));
+
+import * as hiFunc from "./js30.js";
+console.log(hiFunc.f1("관우2"));
+console.log(hiFunc.f2("장비2"));
+
+</script>
+</body>
+</html>
