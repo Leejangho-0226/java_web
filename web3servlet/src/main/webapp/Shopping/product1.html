@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.getElementById("btnOk").onclick = function(){
+		// 입력자료 오류 검사 생략
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+   <table>
+      <tr>
+         <td><img src="../images/jepum1.jpg" width="100"/></td>
+         <td>
+         <pre>
+			SVBONY SV205 천체 망원경 행성 카메라 전자 접안 렌즈 천체 사진기 1.25'' 
+			CMOS 천문학 행성 카메라 8MP USB3.0 천체 사진용 전자 아이피스         
+         </pre>
+		</td>
+      </tr>
+      <tr>
+         <td colspan="2">
+            <form action="../CartServlet" name="frm" method="post">
+               <input type="hidden" name="name" value="뉴발란스 550 화이트">
+               <input type="hidden" name="price" value="60000">
+               
+                <input type="button" id="btnOk" value="장바구니에 담기"> 
+                <input type="button" value="홈페이지로 이동" onclick="history.back()">
+            </form>
+         </td>
+      </tr>
+   </table>
+</body>
+</html>

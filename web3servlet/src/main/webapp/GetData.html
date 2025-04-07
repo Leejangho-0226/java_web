@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>get</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.querySelector("#btnOk").onclick = getfunc;
+}
+
+function getfunc(){
+	//alert("a");
+	// 입력자료 오류 검사 생략...
+	frmGet.submit(); // 자룔를 들고 서버의 서블릿 파일을 요청
+	// http://localhost/web3servlet/GetDataServlet?name=oscar&age=23
+}
+</script>
+</head>
+<body>
+<h2>GET 요청 처리</h2>
+<form action = "GetDataServlet" method="get" name="frmGet"><!--메소드가 post면 405오류 남 궁합을 맞춰줘야함  -->
+	<div>
+	이름 : <input type="text" name="name" size="10" value="oscar"><br/>
+	나이 : <input type="text" name="age" size="3" value="23"><br/>
+	</div>
+	<br/>
+	<input type="button" id="btnOk" value="자료 전송1">
+</form>
+<br/>
+<a href="GetDataServlet?name=tom&age=24">자료전송2</a>
+<!-- http://localhost/web3servlet/GetDataServlet?name=tom&age=23 -->
+</body>
+</html>

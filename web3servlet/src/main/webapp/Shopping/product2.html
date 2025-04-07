@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.getElementById("btnOk").onclick = function(){
+		// 입력자료 오류 검사 생략
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+   <table>
+      <tr>
+         <td><img src="../images/jepum2.jpg" width="100"/></td>
+         <td>
+         <pre>
+			스카이키스 천체망원경 입문 고배율 천문 우주 망원경 별 달 토성 목성 태양 관측        
+         </pre>
+		</td>
+      </tr>
+      <tr>
+         <td colspan="2">
+            <form action="../CartServlet" name="frm" method="post">
+               <input type="hidden" name="name" value="여행용">
+               <input type="hidden" name="price" value="30000">
+               
+                <input type="button" id="btnOk" value="장바구니에 담기"> 
+                <input type="button" value="홈페이지로 이동" onclick="history.back()">
+            </form>
+         </td>
+      </tr>
+   </table>
+</body>
+</html>

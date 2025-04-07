@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>post</title>
+</head>
+<body>
+<h2>POST 요청 처리</h2>
+<form action = "PostDataServlet" method="post">
+이름 : <input type="text" name="name" value="공기밥"><br/>
+
+<!-- name이 동일 -->
+주소1 : <input type="text" name="addr" value="서울시"><br/>
+주소2 : <input type="text" name="addr" value="강남구 테헤란로"><br/>
+
+<!-- checkbox // 복수 선택 가능 -->
+<br>사용 가능한 언어를 모두 선택!
+<input type="checkbox" name="Lan" value="C언어">C언어&nbsp;&nbsp;
+<input type="checkbox" name="Lan" value="자바">자바&nbsp;&nbsp;
+<input type="checkbox" name="Lan" value="파이썬">파이썬<br/>
+
+<!-- radio // 반드시 하나는 선택해야함 -->
+<br>현재 사용 중인 운영체제는?
+<input type="radio" name="os" value="윈도우" checked="checked">윈도우&nbsp;&nbsp;
+<input type="radio" name="os" value="맥os">맥os<br/>
+<br>
+<input type="submit" value="자료 전송">
+</form>
+
+</body>
+</html>
